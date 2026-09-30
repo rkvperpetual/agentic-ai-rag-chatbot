@@ -71,7 +71,7 @@ A production-grade, strictly grounded Retrieval-Augmented Generation (RAG) chatb
 | **Vector DB** | **Pinecone** (Serverless) | Explicitly specified; fast serverless vector search |
 | **Embeddings** | `all-MiniLM-L6-v2` (384 dims) | Runs locally on CPU, high quality, zero cost, no rate limits |
 | **Orchestrator** | **LangGraph** | Explicitly required state-graph with conditional routing |
-| **LLM** | **Groq** (`llama-3.1-8b-instant`) | Ultra-fast inference, high accuracy, free tier |
+| **LLM** | **Groq** (`openai/gpt-oss-20b`) | Ultra-fast inference, high accuracy, free tier |
 | **API & UI** | **FastAPI** + Swagger Docs + Web UI | Instant `/docs` OpenAPI interface + interactive dark-mode web chat |
 
 ---
@@ -94,7 +94,6 @@ agentic-ai-rag-chatbot/
 ├── requirements.txt        # Pinned dependencies
 ├── .env.example            # Environment variables template
 ├── .gitignore              # Ignored files (.env, __pycache__, etc.)
-├── plan.md                 # Project implementation plan
 └── README.md               # Documentation and setup guide
 ```
 
@@ -243,22 +242,3 @@ Six comprehensive queries are detailed in [`sample_queries.md`](sample_queries.m
 
 ---
 
-## Limitations & Future Work
-
-- **Confidence Definition:** The confidence score reflects vector semantic similarity between the question and the top retrieved chunk. It measures context relevance rather than an absolute mathematical guarantee of factual completeness.
-- **Conversational Memory:** The current implementation processes single-turn independent questions. Future improvements could integrate LangGraph checkpointers (`MemorySaver`) for multi-turn dialogue.
-- **Complex Table / Figure Extraction:** Tabular layouts and diagrams in the PDF are converted via text extraction. Integrating layout-aware OCR (such as `pdfplumber` or `unstructured`) would enhance table parsing.
-- **Reranking:** Adding a Cohere or BGE cross-encoder reranker between `retrieve` and `generate` would further optimize ranking precision.
-
----
-
-## Submission Checklist
-
-- [x] Repository structured and self-contained
-- [x] Ingestion pipeline with chunking and embeddings (`app/ingest.py`)
-- [x] LangGraph state graph with retrieval, conditional routing, and fallback (`app/graph.py`)
-- [x] FastAPI `/chat` and `/health` endpoints returning answer, chunks, and confidence (`app/main.py`)
-- [x] Embedded interactive dark-mode web chat UI served on `/`
-- [x] Sample queries with real confidence scores and outputs (`sample_queries.md`)
-- [x] Architecture explanation and ASCII diagram
-- [x] `.env.example`, `.gitignore`, and `requirements.txt` included
