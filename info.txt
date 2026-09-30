@@ -1,0 +1,31 @@
+Task Title:
+AI Engineer – Interview Task (Without AI Coding Platforms)
+Objective:
+Build a RAG‑based AI Chatbot in Python using LangGraph, Pinecone (or any Vector DB of your choice), and Text Embeddings, which answers questions strictly based on this knowledge base: 📖 Agentic AI eBook → https://konverge.ai/pdf/Ebook-Agentic-AI.pdf
+Requirements:
+Ingest the PDF → chunk text → generate embeddings → store in Pinecone.
+Build a RAG pipeline using LangGraph:
+Retrieve relevant chunks
+Generate answer using an LLM
+Ensure answers are strictly grounded in the PDF
+Expose a simple Chat API (FastAPI/Flask) OR optional open‑source chat UI (Streamlit/Gradio/React).
+Response must return:
+Final answer
+Retrieved context chunks
+Confidence or score
+Deliverables:
+GitHub Repository containing:
+README with setup instructions
+Working RAG chatbot (API or UI)
+Sample queries (5–6)
+Short architecture explanation
+Submission Guidelines:
+Deadline: Within 48hours (2 days) from the time you receive this mail.
+Submission Method: Share your GitHub repository link only.
+Ensure your repo is public or accessible for review.
+
+Please reply to this mail confirming that you have accepted this assignment.
+Kindly submit your GitHub repository link through this Google Form only (and not via email) for us to track and review submissions in an organized manner:
+👉  https://forms.gle/X8cnSCVSRToz1Svg6
+Please share cv on this mail.
+Note: Please avoid using no‑code/low‑code AI platforms (“Without Vibe Coding”). Focus on Python implementation with the mentioned frameworks.
