@@ -41,7 +41,8 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Vector store cache
+# Large Documents & Data
+*.pdf
 data/
 chroma_db/
 *.log
