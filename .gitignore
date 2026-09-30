@@ -46,3 +46,4 @@ Thumbs.db
 data/
 chroma_db/
 *.log
+tests/
